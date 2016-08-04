@@ -1,4 +1,3 @@
-
 var AWS = require('aws-sdk');
 // ec2-node-user
 // Access Key ID:
@@ -10,18 +9,24 @@ AWS.config.loadFromPath('./config.json');
 
 var s3 = new AWS.S3();
 
- s3.createBucket({Bucket: 'www.commitdeploy.hash123321'}, function() {
+s3.createBucket({
+    Bucket: 'www.commitdeploy.hash123321'
+}, function() {
 
-  var params = {Bucket: 'www.commitdeploy.hash123321', Key: 'AKIAITBO3FCFAOIU77FA', Body: 'Hello!'};
+    var params = {
+        Bucket: 'www.commitdeploy.hash123321',
+        Key: 'AKIAITBO3FCFAOIU77FA',
+        Body: 'Hello!'
+    };
 
-  s3.putObject(params, function(err, data) {
+    s3.putObject(params, function(err, data) {
 
-      if (err)
+        if (err)
 
-          console.log(err)
+            console.log(err)
 
-      else       console.log("Successfully uploaded data to myBucket/myKey");
+        else console.log("Successfully uploaded data to myBucket/myKey");
 
-   });
+    });
 
 });
