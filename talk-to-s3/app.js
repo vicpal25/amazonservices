@@ -1,13 +1,18 @@
 var AWS = require('aws-sdk');
-// ec2-node-user
-// Access Key ID:
-// AKIAITBO3FCFAOIU77FA
-// Secret Access Key:
-// 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
-AWS.config.loadFromPath('./config.json');
+
+AWS.config.loadFromPath('../config.json');
 
 
 var s3 = new AWS.S3();
+
+s3.getBucket({
+
+  Bucket: 'www.commitdeploy.hash123321',
+  function(data) {
+   console.log(data);
+  }
+
+});
 
 s3.createBucket({
     Bucket: 'www.commitdeploy.hash123321'
